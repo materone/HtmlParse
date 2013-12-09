@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TFHpple.h"
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *txtResult;
+- (IBAction)parse:(id)sender;
 
 @end

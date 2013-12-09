@@ -23,6 +23,11 @@
 		EA10D6411851ED9800C2DDC4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA10D61C1851ED9800C2DDC4 /* Foundation.framework */; };
 		EA10D6491851ED9800C2DDC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA10D6471851ED9800C2DDC4 /* InfoPlist.strings */; };
 		EA10D64C1851ED9800C2DDC4 /* HtmlParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA10D64B1851ED9800C2DDC4 /* HtmlParseTests.m */; };
+		EA10D6981851EE9D00C2DDC4 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = EA10D6951851EE9D00C2DDC4 /* TFHpple.m */; };
+		EA10D6991851EE9D00C2DDC4 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EA10D6971851EE9D00C2DDC4 /* TFHppleElement.m */; };
+		EA10D69C1851EEB000C2DDC4 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = EA10D69B1851EEB000C2DDC4 /* XPathQuery.m */; };
+		EA10D69E1851EEEC00C2DDC4 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA10D69D1851EEEC00C2DDC4 /* libxml2.2.dylib */; };
+		EA28A7F91855E7BA00D276B8 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = EA28A7F81855E7BA00D276B8 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,14 @@
 		EA10D6481851ED9800C2DDC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA10D64A1851ED9800C2DDC4 /* HtmlParseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HtmlParseTests.h; sourceTree = "<group>"; };
 		EA10D64B1851ED9800C2DDC4 /* HtmlParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HtmlParseTests.m; sourceTree = "<group>"; };
+		EA10D6941851EE9D00C2DDC4 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		EA10D6951851EE9D00C2DDC4 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		EA10D6961851EE9D00C2DDC4 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		EA10D6971851EE9D00C2DDC4 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		EA10D69A1851EEB000C2DDC4 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		EA10D69B1851EEB000C2DDC4 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		EA10D69D1851EEEC00C2DDC4 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		EA28A7F81855E7BA00D276B8 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA10D69E1851EEEC00C2DDC4 /* libxml2.2.dylib in Frameworks */,
 				EA10D61B1851ED9800C2DDC4 /* UIKit.framework in Frameworks */,
 				EA10D61D1851ED9800C2DDC4 /* Foundation.framework in Frameworks */,
 				EA10D61F1851ED9800C2DDC4 /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +101,7 @@
 		EA10D60E1851ED9800C2DDC4 = {
 			isa = PBXGroup;
 			children = (
+				EA10D6921851EE7800C2DDC4 /* Hpple */,
 				EA10D6201851ED9800C2DDC4 /* HtmlParse */,
 				EA10D6441851ED9800C2DDC4 /* HtmlParseTests */,
 				EA10D6191851ED9800C2DDC4 /* Frameworks */,
@@ -106,6 +121,7 @@
 		EA10D6191851ED9800C2DDC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA10D69D1851EEEC00C2DDC4 /* libxml2.2.dylib */,
 				EA10D61A1851ED9800C2DDC4 /* UIKit.framework */,
 				EA10D61C1851ED9800C2DDC4 /* Foundation.framework */,
 				EA10D61E1851ED9800C2DDC4 /* CoreGraphics.framework */,
@@ -123,6 +139,7 @@
 				EA10D6351851ED9800C2DDC4 /* ViewController.h */,
 				EA10D6361851ED9800C2DDC4 /* ViewController.m */,
 				EA10D6211851ED9800C2DDC4 /* Supporting Files */,
+				EA28A7F81855E7BA00D276B8 /* index.html */,
 			);
 			path = HtmlParse;
 			sourceTree = "<group>";
@@ -158,6 +175,27 @@
 				EA10D6471851ED9800C2DDC4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA10D6921851EE7800C2DDC4 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				EA10D6941851EE9D00C2DDC4 /* TFHpple.h */,
+				EA10D6951851EE9D00C2DDC4 /* TFHpple.m */,
+				EA10D6961851EE9D00C2DDC4 /* TFHppleElement.h */,
+				EA10D6971851EE9D00C2DDC4 /* TFHppleElement.m */,
+				EA10D6931851EE7E00C2DDC4 /* XPath */,
+			);
+			name = Hpple;
+			sourceTree = "<group>";
+		};
+		EA10D6931851EE7E00C2DDC4 /* XPath */ = {
+			isa = PBXGroup;
+			children = (
+				EA10D69A1851EEB000C2DDC4 /* XPathQuery.h */,
+				EA10D69B1851EEB000C2DDC4 /* XPathQuery.m */,
+			);
+			name = XPath;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +274,7 @@
 				EA10D62F1851ED9800C2DDC4 /* Default@2x.png in Resources */,
 				EA10D6311851ED9800C2DDC4 /* Default-568h@2x.png in Resources */,
 				EA10D6341851ED9800C2DDC4 /* MainStoryboard.storyboard in Resources */,
+				EA28A7F91855E7BA00D276B8 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +312,9 @@
 				EA10D6271851ED9800C2DDC4 /* main.m in Sources */,
 				EA10D62B1851ED9800C2DDC4 /* AppDelegate.m in Sources */,
 				EA10D6371851ED9800C2DDC4 /* ViewController.m in Sources */,
+				EA10D6981851EE9D00C2DDC4 /* TFHpple.m in Sources */,
+				EA10D6991851EE9D00C2DDC4 /* TFHppleElement.m in Sources */,
+				EA10D69C1851EEB000C2DDC4 /* XPathQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +425,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HtmlParse/HtmlParse-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "HtmlParse/HtmlParse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -394,6 +437,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HtmlParse/HtmlParse-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "HtmlParse/HtmlParse-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -453,6 +497,7 @@
 				EA10D6511851ED9800C2DDC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA10D6521851ED9800C2DDC4 /* Build configuration list for PBXNativeTarget "HtmlParseTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +506,7 @@
 				EA10D6541851ED9800C2DDC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
