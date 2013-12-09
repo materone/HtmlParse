@@ -29,7 +29,7 @@
 - (IBAction)parse:(id)sender {
     NSLog(@"This is a test");
     NSString *fPath=[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
-    NSLog(fPath);
+    NSLog(@"%@",fPath);
     NSData *data = [NSData dataWithContentsOfFile:fPath];
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData:data];
     NSArray *searchResult = [doc searchWithXPathQuery:@"//a[@class='sponsor']"];
@@ -39,16 +39,20 @@
     }
     
     //do a web req
-    NSURL *url = [NSURL URLWithString:@"http://api.hudong.com/iphonexml.do"];
+    NSURL *url = [NSURL URLWithString:@"http://www.szairport.com/frontapp/HbxxServlet"];
     //第二步，创建请求
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     [request setHTTPMethod:@"POST"];//设置请求方式为POST，默认为GET
-    NSString *str = @"type=focus-c";//设置参数
+    NSString *str = @"flag=HBH";//设置参数
+    [str stringByAppendingString:@"&hbxx_hbh=CZ3575"];
+    [str stringByAppendingString:@"&AD_COOKIE=20111134"];
+    [str stringByAppendingString:@"&JSESSIONID=964615E160EAB821E55BF031FC0FD3AA"];
     data = [str dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:data];
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     //
-    NSLog(@"%@",str1);
+    txtResult.text = str1;
+    NSLog(@"Result:%@",str1);
 }
 @end
