@@ -11,6 +11,7 @@
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *txtResult;
+@property (strong, nonatomic) IBOutlet UITextField *sURL;
 - (IBAction)parse:(id)sender;
 
 @end

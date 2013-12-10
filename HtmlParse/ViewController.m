@@ -14,6 +14,7 @@
 
 @implementation ViewController
 @synthesize txtResult;
+@synthesize sURL;
 
 - (void)viewDidLoad
 {
@@ -29,6 +30,7 @@
 
 - (IBAction)parse:(id)sender {
     NSLog(@"This is a test");
+    NSMutableString *msgStr = [[NSMutableString alloc]initWithCapacity:100];
     NSString *fPath=[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
     NSLog(@"%@",fPath);
     NSData *data = [NSData dataWithContentsOfFile:fPath];
@@ -58,23 +60,28 @@
     [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
     
     [request setHTTPMethod:@"POST"];//设置请求方式为POST，默认为GET
-    NSString *str = [NSString stringWithFormat:@"flag=%@&hbxx_hbh=%@",@"HBH",@"CZ3575"];//设置参数
+    if ([sURL.text length] < 1) {
+        sURL.text = @"CZ3575";
+    }
+    NSString *str = [NSString stringWithFormat:@"flag=%@&hbxx_hbh=%@",@"HBH",sURL];//设置参数@"CZ3575"
     data = [str dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:data];
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
     //
-    txtResult.text = str1;
+    //txtResult.text = str1;
     NSData *htmlData = [str1 dataUsingEncoding:NSUTF8StringEncoding];
     doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     searchResult = [doc searchWithXPathQuery:@"//tbody[@id='trs']/tr[@class='even']/td"];
     if (searchResult.count > 0) {
         for (int i = 0; i <searchResult.count; i++) {            
             TFHppleElement *elem = [searchResult objectAtIndex:i];
+            [msgStr appendFormat:@"Text:%@ :%@ :%@",[elem text],[elem tagName] ,[[elem attributes] objectForKey:@"width"]];
             NSLog(@"Text:%@ :%@ :%@",[elem text],[elem tagName] ,[[elem attributes] objectForKey:@"width"]);
             //NSLog(@"Text:%@ :%@ :%@ :%@ ",[elem text],[elem tagName] ,[[elem attributes] objectForKey:@"width"],[elem objectForKey:@"href"]);
         }
     }
+    txtResult.text = msgStr;
     //NSLog(@"Result:%@",str1);
 }
 @end
