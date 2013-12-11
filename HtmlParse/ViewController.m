@@ -63,7 +63,7 @@
     if ([sURL.text length] < 1) {
         sURL.text = @"CZ3575";
     }
-    NSString *str = [NSString stringWithFormat:@"flag=%@&hbxx_hbh=%@",@"HBH",sURL];//设置参数@"CZ3575"
+    NSString *str = [NSString stringWithFormat:@"flag=%@&hbxx_hbh=%@",@"HBH",sURL.text];//设置参数@"CZ3575"
     data = [str dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPBody:data];
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -73,15 +73,23 @@
     NSData *htmlData = [str1 dataUsingEncoding:NSUTF8StringEncoding];
     doc = [[TFHpple alloc] initWithHTMLData:htmlData];
     searchResult = [doc searchWithXPathQuery:@"//tbody[@id='trs']/tr[@class='even']/td"];
+//    NSRange rang;
+//    rang.length = msgStr.length;
+//    rang.location = 0;
     if (searchResult.count > 0) {
         for (int i = 0; i <searchResult.count; i++) {            
             TFHppleElement *elem = [searchResult objectAtIndex:i];
-            [msgStr appendFormat:@"Text:%@ :%@ :%@",[elem text],[elem tagName] ,[[elem attributes] objectForKey:@"width"]];
+            [msgStr appendFormat:@"%@|",[elem text]];
             NSLog(@"Text:%@ :%@ :%@",[elem text],[elem tagName] ,[[elem attributes] objectForKey:@"width"]);
             //NSLog(@"Text:%@ :%@ :%@ :%@ ",[elem text],[elem tagName] ,[[elem attributes] objectForKey:@"width"],[elem objectForKey:@"href"]);
         }
     }
+    NSInteger iCnt0  = msgStr.length;
+    NSInteger iCnt1 = [msgStr replaceOccurrencesOfString:@"\x09" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
+    NSInteger iCnt2 = [msgStr replaceOccurrencesOfString:@"\x0A" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
+    NSInteger iCnt3 = [msgStr replaceOccurrencesOfString:@"\r" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
+    NSInteger iCnt4 = [msgStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
     txtResult.text = msgStr;
-    //NSLog(@"Result:%@",str1);
+    NSLog(@"Result:%d  %d  %d  %d  %d  %d",iCnt0,iCnt1,iCnt2,iCnt3,iCnt4,msgStr.length);
 }
 @end
