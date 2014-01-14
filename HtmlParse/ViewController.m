@@ -86,10 +86,9 @@
     }
     NSInteger iCnt0  = msgStr.length;
     NSInteger iCnt1 = [msgStr replaceOccurrencesOfString:@"\x09" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
-    NSInteger iCnt2 = [msgStr replaceOccurrencesOfString:@"\x0A" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
-    NSInteger iCnt3 = [msgStr replaceOccurrencesOfString:@"\r" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
-    NSInteger iCnt4 = [msgStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
+    NSInteger iCnt2 = [msgStr replaceOccurrencesOfString:@"\x0D\x0A" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
+    NSInteger iCnt3 = [msgStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:NSMakeRange(0, msgStr.length)];
     txtResult.text = msgStr;
-    NSLog(@"Result:%d  %d  %d  %d  %d  %d",iCnt0,iCnt1,iCnt2,iCnt3,iCnt4,msgStr.length);
+    NSLog(@"Result:%d  %d  %d  %d  %d",iCnt0,iCnt1,iCnt2,iCnt3,msgStr.length);
 }
 @end
